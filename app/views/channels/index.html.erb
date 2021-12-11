@@ -2,6 +2,7 @@
 
 <h1>Channels</h1>
 
+<% if has_role?(:admin) %>
 <table>
   <thead>
     <tr>
@@ -25,3 +26,7 @@
 <br>
 
 <%= link_to 'New Channel', new_channel_path %>
+
+<% else %>
+  <p class="has-text-center">Sorry! You don't have access this page</p>
+<% end %>
