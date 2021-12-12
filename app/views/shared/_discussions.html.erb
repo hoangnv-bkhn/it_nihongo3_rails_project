@@ -4,7 +4,13 @@
     <% @discussions.each do |discussion| %>
       <div class="columns bb-not-last pv10">
         <div class="column is-1">
+             <% if discussion.user.avatar.attached?%>
+          <div >
+          <%= image_tag discussion.user.avatar, class:'avatar3'           %>
+          </div>
+          <%else%>
           <%= gravatar_image_tag(discussion.user.email, class:'border-radius-50', size: 48, alt: discussion.user.username) %>
+          <%end%>
         </div>
         <div class="column is-8">
           <%= link_to discussion do %>
